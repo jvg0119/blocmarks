@@ -1,0 +1,45 @@
+
+<br />
+ <!-- <nav class="navbar navbar-light bg-faded"> -->
+<nav class="navbar navbar-light bg-faded" style="background-color: #D5D3D5">
+
+  <!-- changes the color of the navbar w/ style-->
+
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <%= link_to "Home", root_path %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "About", about_path %>
+    </li>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+
+    <%# if session[:user_id] %>
+    <%# if current_user %>
+      <li class="nav-item">
+        <%#= session[:user_id] %>
+        <%#= link_to session[user_id], session[user_id] %> <!-- current_user-->
+        <!-- <span>Hi <%#= link_to current_user.name, edit_user_path(current_user) %></span> -->
+      </li>     
+      <li class="nav-item">
+        <%= link_to "Sign Out", "#" %> <!-- session_path, method: :delete -->
+      </li>
+    <%# else %>  
+      <li class="nav-item active">
+        <%#= link_to "Sign Up", new_user_path %>
+        <%= link_to "Sign Up", "#" %> <!-- signup_path -->
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign In", "#" %> <!-- signin_path --><!-- new_session_path -->
+      </li>  
+
+    <%# end %>
+  
+  </ul>
+
+
+</nav>
+
+

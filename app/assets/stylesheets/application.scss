@@ -10,6 +10,23 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ * require_tree .
+ * require_self
  */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.navbar-nav > li {
+    float: none;
+    display: inline-block; // puts the display inline w/ the block ex: Hi Joe!
+    margin-right: 20px; // moves the right inside the navbar
+  }
+
+.background-image {
+    background: image-url('background.jpg');
+}
+
+
