@@ -1,0 +1,8 @@
+<div class="well" style="background:#F2DEDE">
+	<h4>Please correct the <%= pluralize(object.errors.count, "error") %> in order to save this record:</h4>
+	<% object.errors.full_messages.each do |msg| %>
+		<ul>
+			<li><%= msg %></li>
+		</ul>	
+	<% end %>
+</div>

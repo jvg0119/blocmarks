@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+	#post :incoming, to: 'incoming#create'
+
+  resources :topics
+
   resources :users, only: [:update]
   devise_for :users
   
