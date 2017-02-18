@@ -18,7 +18,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 .navbar-nav > li {
     float: none;
     display: inline-block; // puts the display inline w/ the block ex: Hi Joe!
@@ -33,16 +32,39 @@ html {
   position: relative;
   min-height: 100%;
 }
+
+
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+.container {
+   //border:solid;
+   min-height:100%;
+   //position:relative;
+}
+.header {
+   background:#ff0;
+   padding:10px;
+}
 .body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+//   border:solid;
+   height:100%;
+   width:100%;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  /* Set the fixed height of the footer here */
-  height: 40px;
-  width: 100%;
-  background-color: #CCC;
+ // border:solid;
+//   position:absolute;
+  // bottom:0%;
+   //width:100%;
+   height:30px;   /* Height of the footer */
+   text-align: center;
+   //background:#6cf;
 }
 
+.well-background {
+  background: #D4D0C7;
+}
