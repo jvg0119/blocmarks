@@ -20,8 +20,8 @@ class IncomingController < ApplicationController
    # Check if the topic is nil, if so, create and save a new topic
    @topic = Topic.find_by(title: params[:subject])
      if @topic.nil?
-     	 @topic.user = @user
-     	 @topic = Topic.new(title: params[:subject], user: @user) 
+     	 #@topic.user = @user
+     	 @topic = Topic.new(title: params[:subject], user: @user)
      	 @topic.save!
      end
 
