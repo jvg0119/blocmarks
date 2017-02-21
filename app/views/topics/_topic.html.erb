@@ -1,8 +1,10 @@
 <div class="col-sm-10">
 	<div class="well well-background">
 		<h4><%= link_to topic.title, topic %></h4>
-		<p>by <%= topic.user.name %></p>
-		<%= link_to "Edit", edit_topic_path(topic), class: "btn btn-primary btn-sm" %>
-		<%= link_to "Delete", topic, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+		<% if topic.user %>
+			<p>by <%= topic.user.name %></p>
+		<% end %>
+		<%= link_to "Edit", edit_topic_path(topic), class: "btn btn-primary btn-sm" if policy(topic).edit? %>
+		<%= link_to "Delete", topic, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" if policy(topic).destroy? %>
 	</div>
 </div>

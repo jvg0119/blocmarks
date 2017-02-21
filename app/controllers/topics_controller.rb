@@ -1,23 +1,27 @@
 class TopicsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!#, except: [:index, :show]
 	before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
   	@topics = Topic.all
+    authorize @topics
   end
 
   def show
   	#@topic = Topic.find(params[:id])
-  	@bookmarks = @topic.bookmarks
+    @bookmarks = @topic.bookmarks
+    authorize @topic
   end
 
   def new
   	@topic = Topic.new
+    authorize @topic
   end
 
   def create
   	#@topic = Topic.new(topic_params)
   	@topic = current_user.topics.new(topic_params)
+    authorize @topic 
   	if @topic.save
   		flash[:notice] = "Your new topic was saved successfully!"
   		redirect_to @topic 
@@ -28,9 +32,11 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    authorize @topic 
   end
 
   def update
+    authorize @topic 
     if @topic.update_attributes(topic_params)
       flash[:notice] = "Your topic was updated successfully!"
       redirect_to @topic
@@ -42,6 +48,7 @@ class TopicsController < ApplicationController
 
   def destroy
   	#@topic = Topic.find(params[:id])
+    authorize @topic
   	if @topic.destroy
   		flash[:notice] = "Your topic is deleted!"  		
   		redirect_to topics_path

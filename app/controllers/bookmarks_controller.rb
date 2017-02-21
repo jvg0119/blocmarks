@@ -1,22 +1,22 @@
 class BookmarksController < ApplicationController
 	before_action :set_topic
 	before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
-  def show
-  	#@topic = Topic.find(params[:topic_id])
-  	#@bookmark = @topic.bookmarks.find(params[:id])
-  end
+ #  def show
+  #   authorize @bookmark  # it's here but not using show
+ #  end
 
   def new
-  	#@topic = Topic.find(params[:topic_id])
   	@bookmark = @topic.bookmarks.new
+    authorize @bookmark
   end
 
   def create
-  	#@topic = Topic.find(params[:topic_id])
   	@bookmark = @topic.bookmarks.new(bookmark_params)
+    @bookmark.user = current_user
+    #authorize @bookmark
   	if @bookmark.save
   		flash[:notice] = "Your new bookmark was saved successfully!"
-  		redirect_to [@topic, @bookmark] 
+  		redirect_to topic_path(@topic) #[@topic, @bookmark] 
   	else
   		flash[:error] = "There was an error saving your bookmark. Please try again."
   		render :new
@@ -24,12 +24,14 @@ class BookmarksController < ApplicationController
   end
 
   def edit
+    authorize @bookmark
   end
 
   def update
+    authorize @bookmark
 	  if @bookmark.update_attributes(bookmark_params)
   		flash[:notice] = "Your new bookmark was updated successfully!"
-  		redirect_to [@topic, @bookmark] 
+  		redirect_to @topic#[@topic, @bookmark] 
   	else
   		flash[:error] = "There was an error updating your bookmark. Please try again."
   		render :edit
@@ -37,8 +39,7 @@ class BookmarksController < ApplicationController
   end	
 
   def destroy
-  	#@topic = Topic.find(params[:topic_id])
-  	#@bookmark = @topic.bookmarks.find(params[:id])
+    authorize @bookmark
   	if @bookmark.destroy
   		flash[:notice] = "Your bookmark was deleted!"
   		redirect_to @topic

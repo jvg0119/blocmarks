@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+
+en:
+ pundit:
+   default: 'You cannot perform this action.'
+   topic_policy:
+     edit?: "You are only allowed to edit the topics you created."
+     destroy?: "You are only allowed to delete the topics you created."
+   bookmark_policy:
+     edit?: "You are only allowed to edit the bookmarks you created."
+     destroy?: "You are only allowed to delete the bookmarks you created."
+

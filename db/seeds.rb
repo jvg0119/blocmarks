@@ -22,15 +22,19 @@ u3 = User.new(name: "Mike", email: "mike@example.com", password: "password")
 u3.skip_confirmation!
 u3.save!
 
- users = [u1,u2, u3]
+u4 = User.new(name: "Admin", email: "admin@example.com", password: "password", role: 'admin')
+u4.skip_confirmation!
+u4.save!
+
+users = [u1,u2, u3]
 
 topic1 = Topic.create(title: "Search Engines", user: u1)
-Bookmark.create(url: "google.com", topic: topic1)
-Bookmark.create(url: "yahoo.com", topic: topic1)
-Bookmark.create(url: "bing.com", topic: topic1)
+	Bookmark.create(url: "google.com", topic: topic1, user: u1)
+	Bookmark.create(url: "yahoo.com", topic: topic1, user: u1)
+	Bookmark.create(url: "bing.com", topic: topic1, user: u1)
 topic2 = Topic.create(title: "Social Sites", user: u2)
-Bookmark.create(url: "facebook.com", topic: topic2)
-Bookmark.create(url: "linkedin.com", topic: topic2)
+	Bookmark.create(url: "facebook.com", topic: topic2, user: u2)
+	Bookmark.create(url: "linkedin.com", topic: topic2, user: u2)
 
 # topics
 topics = []
@@ -41,9 +45,10 @@ topics = []
 end
 
 # bookmark url
-1.upto(10) do 
+1.upto(20) do 
 	topic = topics.sample
-	Bookmark.create(url: "#{Faker::Internet.url}", topic: topic)
+	user = users.sample
+	Bookmark.create(url: "#{Faker::Internet.url}", topic: topic, user: user)
 end
 
 
