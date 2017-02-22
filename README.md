@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blocmark is a bloc project
 
-Things you may want to cover:
+* Devise for authentication 	https://github.com/plataformatec/devise 
 
-* Ruby version
+* Mailgun for incoming emails
 
-* System dependencies
+* Pundit for authorization 	https://github.com/elabs/pundit 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

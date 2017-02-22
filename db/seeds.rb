@@ -29,12 +29,17 @@ u4.save!
 users = [u1,u2, u3]
 
 topic1 = Topic.create(title: "Search Engines", user: u1)
-	Bookmark.create(url: "google.com", topic: topic1, user: u1)
-	Bookmark.create(url: "yahoo.com", topic: topic1, user: u1)
-	Bookmark.create(url: "bing.com", topic: topic1, user: u1)
+	bookmark1 = Bookmark.create(url: "google.com", topic: topic1, user: u1)
+		Like.create(bookmark: bookmark1, user: u1)
+	bookmark2 = Bookmark.create(url: "yahoo.com", topic: topic1, user: u1)
+		Like.create(bookmark: bookmark2, user: u1)
+	bookmark3 = Bookmark.create(url: "bing.com", topic: topic1, user: u1)
+		Like.create(bookmark: bookmark3, user: u1)
 topic2 = Topic.create(title: "Social Sites", user: u2)
-	Bookmark.create(url: "facebook.com", topic: topic2, user: u2)
-	Bookmark.create(url: "linkedin.com", topic: topic2, user: u2)
+	bookmark4 = Bookmark.create(url: "facebook.com", topic: topic2, user: u2)
+		Like.create(bookmark: bookmark4, user: u2)
+	bookmark5 = Bookmark.create(url: "linkedin.com", topic: topic2, user: u2)
+		Like.create(bookmark: bookmark5, user: u2)
 
 # topics
 topics = []
@@ -48,7 +53,8 @@ end
 1.upto(20) do 
 	topic = topics.sample
 	user = users.sample
-	Bookmark.create(url: "#{Faker::Internet.url}", topic: topic, user: user)
+	bookmark = Bookmark.create(url: "#{Faker::Internet.url}", topic: topic, user: user)
+		Like.create(bookmark: bookmark, user: user)
 end
 
 

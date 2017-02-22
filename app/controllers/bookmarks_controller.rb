@@ -15,6 +15,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     #authorize @bookmark
   	if @bookmark.save
+      @bookmark.likes.create!(user: current_user)
   		flash[:notice] = "Your new bookmark was saved successfully!"
   		redirect_to topic_path(@topic) #[@topic, @bookmark] 
   	else

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :topics, dependent: :nullify  
   has_many :bookmarks, dependent: :nullify
   has_many :likes, dependent: :destroy
+  has_many :bookmark_likes, through: :likes, source: :bookmark
 
   enum role: { regular: 0, admin: 1 }
   #enum role: [ :regular, :admin ] 

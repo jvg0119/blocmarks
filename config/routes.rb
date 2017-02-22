@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   	resources :bookmarks, except: [:index]
   end
 
-  resources :users, only: [:update]
   devise_for :users
-  
+  resources :users, only: [:update, :show]
 
   get 'index' => 'welcome#index'
   get 'about' => 'welcome#about'

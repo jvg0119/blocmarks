@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
+
+   def show
+     @my_bookmarks = current_user.bookmarks
+     @my_bookmark_likes = current_user.bookmark_likes
+   end
 
   def update
   	#@user = User.find(params[:id]) ## OK
