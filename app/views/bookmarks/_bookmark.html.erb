@@ -1,8 +1,15 @@
 <div class="col-sm-12">
 	<div class="well well-background">
+
+		<div class="like-button">
+			<%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+		</div>
+
 		<!-- <h4><%#= link_to "show", [bookmark.topic, bookmark] %></h4> -->
 		<h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank"  %></h4>
+
 		<%= link_to "Edit", edit_topic_bookmark_path(bookmark.topic, bookmark), class: "btn btn-sm btn-primary" if policy(bookmark).edit? %>
 		<%= link_to "Delete", topic_bookmark_path(bookmark.topic, bookmark), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" if policy(bookmark).destroy? %>
+
 	</div>
 </div>

@@ -1,0 +1,15 @@
+
+<% if policy(Like.new).create? %>
+	<% if like = current_user.liked(bookmark) %>
+		<%#= link_to bookmark_like_path(bookmark, bookmark.likes.first), class: "btn btn-sm btn-danger", method: :delete do %>
+		<%= link_to bookmark_like_path(bookmark, like), class: "btn btn-sm btn-danger", method: :delete do %>
+			<i class="glyphicon glyphicon-star-empty"></i>&nbsp; Unlike
+		<% end %>
+
+	<% else %>
+		<%#= link_to [bookmark, Like.new], class: "btn btn-sm btn-success", method: :post do %> <!-- OK -->
+		<%= link_to bookmark_likes_path(bookmark), class: "btn btn-sm btn-success", method: :post do %>
+			<i class="glyphicon glyphicon-star"></i>&nbsp; Like
+		<% end %>
+	<% end %>
+<% end %>

@@ -8,15 +8,12 @@
 		<% if @bookmarks.any? %>
 			<h4>Bookmarks</h4>
 			<%= render partial: 'bookmarks/bookmark', collection: @bookmarks %>				
-				<%#= link_to "Add a Topic", new_topic_path, class: "btn btn-primary" %>				
+
 		<% else %>
-				<!-- <div class="col-sm-12"> -->
-		<h4>No bookmark available</h4>
-					
-				<!-- </div> -->
-							
+			<h4>No bookmark available</h4>
 		<% end %>
 
 	<%= link_to "Create New Bookmark", new_topic_bookmark_path(@topic), class: "btn btn-primary" %>
 
 	</div>
+
