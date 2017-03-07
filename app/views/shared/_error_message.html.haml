@@ -1,0 +1,7 @@
+.well{style: "background:#F2DEDE"}
+	%h4 
+		Please correct the #{pluralize(object.errors.count, "error")} in order to save this record:
+	- object.errors.full_messages.each do |msg|
+		%ul
+			%li msg
+

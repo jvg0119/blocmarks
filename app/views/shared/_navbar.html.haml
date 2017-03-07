@@ -1,0 +1,25 @@
+%br/ 
+%nav.navbar.navbar-light.bg-faded{style: "background-color: #D5D3D5"}
+	%ul.nav.navbar-nav
+		%li.nav-item.active
+			= link_to "Home", root_path
+		- if current_user 
+			%li.nav-item
+				= link_to "Topics", topics_path
+			%li.nav-item	
+				= link_to "My Blocmarks",user_path(current_user)
+			%li.nav-item
+				= link_to "About", about_path			
+	%ul.nav.navbar-nav.navbar-right
+		- if current_user
+			%li.nav-item
+				= link_to current_user.name || current_user.email, edit_user_registration_path
+			%li.nav-item
+				= link_to "Sign Out", destroy_user_session_path, method: :delete
+		- else
+			%li.nav-item.active
+				= link_to "Sign Up", new_user_registration_path
+			%li.nav-item
+				= link_to "Sign In", new_user_session_path				
+
+

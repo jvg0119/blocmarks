@@ -1,0 +1,13 @@
+.row
+	.col-sm-9
+		= form_for [@topic, @bookmark] do |f|
+			- if @bookmark.errors.any?
+				= render partial: 'shared/error_message', locals: { object: @bookmark }
+			.form-group
+				= f.label :url
+				= f.text_field :url, class: "form-control", autofocus: true, placeholder: "Enter url"	
+			.form-group
+				= f.submit class: "btn btn-primary"
+
+
+

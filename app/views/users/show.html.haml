@@ -1,0 +1,19 @@
+- if current_user.bookmarks.any?
+	%h1
+		= current_user.name
+		's bookmarks
+	= render partial: 'bookmarks/bookmark', locals: { bookmark: @my_bookmarks }, collection: @my_bookmarks
+- else
+	No bookmark for <%= current_user.name
+%br
+%br
+- if current_user.bookmark_likes.any?	
+	%h1 
+		= current_user.name
+		's Likes
+	= render partial: 'bookmarks/bookmark', locals: { bookmark: @my_bookmark_likes }, collection: @my_bookmark_likes
+- else 
+	%h1
+		No likes for <%= current_user.name	
+					
+

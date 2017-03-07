@@ -1,0 +1,5 @@
+.row.col-sm-12
+	%h1 Bookmark Topics
+	= render @topics
+	.col-sm-12
+		= link_to "Add a Topic", new_topic_path, class: "btn btn-primary"

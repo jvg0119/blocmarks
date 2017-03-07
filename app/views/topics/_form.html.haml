@@ -1,0 +1,13 @@
+.row
+	.col-sm-9
+		= form_for @topic do |f|
+			- if @topic.errors.any?
+				= render partial: 'shared/error_message', locals: { object: @topic }
+			.form-group	
+				= f.label :title
+				= f.text_field :title, class: "form-control", autofocus: true, placeholder: "Enter title"
+			.form-group
+				= f.submit class: "btn btn-success"
+	
+
+

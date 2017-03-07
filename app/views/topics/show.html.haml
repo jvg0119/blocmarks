@@ -1,0 +1,8 @@
+%h1= @topic.title
+.row.col-sm-12
+	-if @bookmarks.any?
+		%h4 Bookmarks
+		=render partial: 'bookmarks/bookmark', collection: @bookmarks
+	-else
+		%h4 No bookmark available
+= link_to "Create New Bookmark", new_topic_bookmark_path(@topic), class: "btn btn-primary"
