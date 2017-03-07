@@ -62,6 +62,7 @@ gem 'devise', '~> 4.2'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'pundit', '~> 1.1'
 
+gem 'embedly', '~> 1.9', '>= 1.9.1'
 
 
 
