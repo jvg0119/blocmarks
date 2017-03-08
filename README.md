@@ -8,7 +8,7 @@ Blocmark is a bloc project
 
 * Pundit for authorization 	https://github.com/elabs/pundit 
 
-* EC for 
-		URL previews using  embedly-ruby 	https://github.com/embedly/embedly-ruby 
-		HAML 	http://haml.info/docs/yardoc/file.REFERENCE.html 
-		readable URL friendly_id 	https://github.com/norman/friendly_id
+* Other 
+	* URL previews using  embedly-ruby 	https://github.com/embedly/embedly-ruby 
+	* HAML 	http://haml.info/docs/yardoc/file.REFERENCE.html 
+	* readable URL friendly_id 	https://github.com/norman/friendly_id
