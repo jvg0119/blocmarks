@@ -25,7 +25,7 @@ class LikesController < ApplicationController
 
   private
   def set_bookmark
-  	@bookmark = Bookmark.find(params[:bookmark_id])
+  	@bookmark = Bookmark.friendly.find(params[:bookmark_id])
   end
 
 end

@@ -61,11 +61,13 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-  	params.require(:topic).permit(:title)
+  	params.require(:topic).permit(:title, :slug)
   end
 
   def set_topic
-  	@topic = Topic.find(params[:id])
+  	#@topic = Topic.find(params[:id])
+    #@topic = Topic.find_by(slug: params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
 end

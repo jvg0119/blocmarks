@@ -4,7 +4,8 @@
 		's bookmarks
 	= render partial: 'bookmarks/bookmark', locals: { bookmark: @my_bookmarks }, collection: @my_bookmarks
 - else
-	No bookmark for <%= current_user.name
+	%h1
+		No bookmark for #{ @current_user.name }
 %br
 %br
 - if current_user.bookmark_likes.any?	
@@ -14,6 +15,6 @@
 	= render partial: 'bookmarks/bookmark', locals: { bookmark: @my_bookmark_likes }, collection: @my_bookmark_likes
 - else 
 	%h1
-		No likes for <%= current_user.name	
+		No likes for #{ @current_user.name }	
 					
 

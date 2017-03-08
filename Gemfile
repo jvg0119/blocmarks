@@ -64,5 +64,5 @@ gem 'pundit', '~> 1.1'
 
 gem 'embedly', '~> 1.9', '>= 1.9.1'
 gem 'haml', '~> 4.0', '>= 4.0.7'
-
+gem 'friendly_id', '~> 5.2'
 
