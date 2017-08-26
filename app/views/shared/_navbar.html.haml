@@ -1,15 +1,21 @@
-%br/ 
+%br/
 %nav.navbar.navbar-light.bg-faded{style: "background-color: #D5D3D5"}
 	%ul.nav.navbar-nav
-		%li.nav-item.active
+		-#%li.nav-item.active
+		%li{:class => "nav-item #{home_active?(params[:controller], params[:action])}"}
 			= link_to "Home", root_path
-		- if current_user 
-			%li.nav-item
+		- if current_user
+			-#%li.nav-item
+			%li{:class => "nav-item #{topic_active?(params[:controller])}"}
 				= link_to "Topics", topics_path
-			%li.nav-item	
-				= link_to "My Blocmarks",user_path(current_user)
+			-#%li.nav-item
+			%li{:class => "nav-item #{blocmarks_active?(params[:controller])}"}
+				= link_to "My Blocmarks", user_path(current_user)
 		%li.nav-item
-			= link_to "About", about_path			
+		-#%li{:class => "nav-item #{about_active?(params[:controller])}"}
+		%li{:class => "nav-item #{about_active?(params[:controller], params[:action])}"}
+			-#raise
+			= link_to "About", about_path
 	%ul.nav.navbar-nav.navbar-right
 		- if current_user
 			%li.nav-item
@@ -17,9 +23,7 @@
 			%li.nav-item
 				= link_to "Sign Out", destroy_user_session_path, method: :delete
 		- else
-			%li.nav-item.active
+			%li.nav-item
 				= link_to "Sign Up", new_user_registration_path
 			%li.nav-item
-				= link_to "Sign In", new_user_session_path				
-
-
+				= link_to "Sign In", new_user_session_path

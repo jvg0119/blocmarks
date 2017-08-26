@@ -20,5 +20,24 @@ require 'json'
 		(obj.first.url).html_safe
 	end
 
-end
+	def home_active?(active_controller, active_action) # welcome controller and about index
+		if active_controller == "welcome" && active_action == "index"
+			"active"
+		end
+	end
 
+	def topic_active?(active_controller)
+		"active" if ["topics"].include?(active_controller) # TopicsController
+	end
+
+	def blocmarks_active?(active_controller)
+		"active" if ["users"].include?(active_controller) # UsersController
+	end
+
+	def about_active?(active_controller, active_action) # welcome controller and about action
+		if active_controller == "welcome" && active_action == "about"
+			"active"
+		end
+	end
+
+end
