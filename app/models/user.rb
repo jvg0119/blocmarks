@@ -4,19 +4,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :topics, dependent: :nullify  
+  has_many :topics, dependent: :nullify
   has_many :bookmarks, dependent: :nullify
   has_many :likes, dependent: :destroy
   has_many :bookmark_likes, through: :likes, source: :bookmark
 
   enum role: { regular: 0, admin: 1 }
-  #enum role: [ :regular, :admin ] 
+  #enum role: [ :regular, :admin ]
 
-  validates :name, presence: true, uniqueness: true
-  validates :slug, uniqueness: true
+  # validates :name, presence: true, uniqueness: true
+  # validates :slug, uniqueness: true
 
-  extend FriendlyId
-  friendly_id :name, use: :slugged 
+  # extend FriendlyId
+  # friendly_id :name, use: :slugged
 
   after_initialize { self.role ||= 'regular' }
 
@@ -26,4 +26,3 @@ class User < ApplicationRecord
   end
 
 end
-

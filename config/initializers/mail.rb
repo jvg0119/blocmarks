@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   address:           'smtp.mailgun.org',
   user_name:         ENV['MAILGUN_SMTP_LOGIN'],
   password:          ENV['MAILGUN_SMTP_PASSWORD'],
-  domain:            'appurlhere.com',
+  domain:            'blocmarks-joe.herokuapp.com/', # 'appurlhere.com',
   authentication:    :plain,
   content_type:      'text/html'
 }
@@ -18,7 +18,7 @@ ActionMailer::Base.raise_delivery_errors = true
 # http://edgeguides.rubyonrails.org/action_mailer_basics.html#intercepting-emails
 class DevelopmentMailInterceptor
   def self.delivering_email(message)
-    message.to =  'youremail@website.com'
+    message.to =  'jvg_0119@yahoo.com' # 'youremail@website.com'
     message.cc = nil
     message.bcc = nil
   end
@@ -28,5 +28,5 @@ end
 # above DevelopmentMailInterceptor before going out
 if Rails.env.development?
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
+  #ActionMailer::Base.register_interceptor(SandboxEmailInterceptor)
 end
-

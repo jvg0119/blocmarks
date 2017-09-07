@@ -21,27 +21,27 @@ class TopicsController < ApplicationController
   def create
   	#@topic = Topic.new(topic_params)
   	@topic = current_user.topics.new(topic_params)
-    authorize @topic 
+    authorize @topic
   	if @topic.save
   		flash[:notice] = "Your new topic was saved successfully!"
-  		redirect_to @topic 
+  		redirect_to @topic
   	else
-  		flash[:error] = "There was an error saving your topic. Please try again."  		
+  		flash[:error] = "There was an error saving your topic. Please try again."
   		render :new
   	end
   end
 
   def edit
-    authorize @topic 
+    authorize @topic
   end
 
   def update
-    authorize @topic 
+    authorize @topic
     if @topic.update_attributes(topic_params)
       flash[:notice] = "Your topic was updated successfully!"
       redirect_to @topic
     else
-      flash[:error] = "There was an error updating your topic. Please try again."     
+      flash[:error] = "There was an error updating your topic. Please try again."
       render :edit
     end
   end
@@ -50,7 +50,7 @@ class TopicsController < ApplicationController
   	#@topic = Topic.find(params[:id])
     authorize @topic
   	if @topic.destroy
-  		flash[:notice] = "Your topic is deleted!"  		
+  		flash[:notice] = "Your topic is deleted!"
   		redirect_to topics_path
   	else
   		flash[:error] = "There was an error deleting your topic. Please try again."
@@ -71,7 +71,3 @@ class TopicsController < ApplicationController
   end
 
 end
-
-
-
-

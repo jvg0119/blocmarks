@@ -3,7 +3,7 @@ class IncomingController < ApplicationController
 
 	def create
 		puts "INCOMING PARAMS HERE: #{params}"
-
+	
 		#sender = params["sender"]
 		#body_plain = params["stripped-text"]
 
@@ -34,4 +34,4 @@ class IncomingController < ApplicationController
 		head 200
 	end
 
-end	
+end
