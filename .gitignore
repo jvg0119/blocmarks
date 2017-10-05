@@ -20,3 +20,5 @@
 /config/application.yml
 
 *.txt
+
+.DS_Store

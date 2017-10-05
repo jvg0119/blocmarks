@@ -17,11 +17,11 @@ class BookmarksController < ApplicationController
   	if @bookmark.save
       @bookmark.likes.create!(user: current_user)
   		flash[:notice] = "Your new bookmark was saved successfully!"
-  		redirect_to topic_path(@topic) #[@topic, @bookmark] 
+  		redirect_to topic_path(@topic) #[@topic, @bookmark]
   	else
   		flash[:error] = "There was an error saving your bookmark. Please try again."
   		render :new
-  	end  		
+  	end
   end
 
   def edit
@@ -32,12 +32,12 @@ class BookmarksController < ApplicationController
     authorize @bookmark
 	  if @bookmark.update_attributes(bookmark_params)
   		flash[:notice] = "Your new bookmark was updated successfully!"
-  		redirect_to @topic#[@topic, @bookmark] 
+  		redirect_to @topic#[@topic, @bookmark]
   	else
   		flash[:error] = "There was an error updating your bookmark. Please try again."
   		render :edit
-  	end  			  	
-  end	
+  	end
+  end
 
   def destroy
     authorize @bookmark
@@ -47,7 +47,7 @@ class BookmarksController < ApplicationController
   	else
   		flash[:error] = "There was an deleting your bookmark. Please try again."
   		render :back
-  	end  		  
+  	end
   end
 
   private

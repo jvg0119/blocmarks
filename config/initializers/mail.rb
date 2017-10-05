@@ -28,5 +28,4 @@ end
 # above DevelopmentMailInterceptor before going out
 if Rails.env.development?
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
-  #ActionMailer::Base.register_interceptor(SandboxEmailInterceptor)
 end

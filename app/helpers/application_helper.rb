@@ -16,10 +16,10 @@ require 'embedly'
 require 'json'
 	def display(url)
 		#  turned off embedly due to reaching url limit it now gives a error
-		embedly_api = Embedly::API.new(key: ENV['EMBELDY_API_KEY'] )
-		obj = embedly_api.oembed :url => url
-		(obj.first.url).html_safe
-		
+		# embedly_api = Embedly::API.new(key: ENV['EMBELDY_API_KEY'] )
+		# obj = embedly_api.oembed :url => url
+		# (obj.first.url).html_safe
+		#
 		# foo = (obj.first.url).html_safe
 		# p '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
 		# p foo

@@ -2,10 +2,12 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Blocmarks
+    %title MarkIt
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css?family=Permanent+Marker", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Contrail+One|Permanent+Marker", :rel => "stylesheet"}/
   %body.background-image
     .container
       %header
@@ -15,4 +17,4 @@
     %br/
     %br/
   %footer.footer
-    %span © Blocmarks by Joe Garcia 2017
+    %span © MarkIt by Joe Garcia 2017
